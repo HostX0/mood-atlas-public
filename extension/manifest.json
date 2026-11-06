@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Mood Atlas Connect for the public workspace",
+  "version": "1.0.0",
+  "minimum_chrome_version": "120",
+  "description": "Connect your YouTube Music account to Mood Atlas. Your session stays in your browser.",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://music.youtube.com/*"],
+  "background": {"service_worker": "worker.mjs", "type": "module"},
+  "action": {"default_popup": "popup.html", "default_title": "Mood Atlas Connect"},
+  "content_scripts": [{
+    "matches": ["https://mood-atlas-public.vercel.app/*", "http://127.0.0.1/*"],
+    "js": ["bridge.js"],
+    "run_at": "document_start",
+    "all_frames": false
+  }],
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"}
+}

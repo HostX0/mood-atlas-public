@@ -1,0 +1,13 @@
+.venv/
+.git/
+tests/
+__pycache__/
+.pytest_cache/
+.env*
+.local-password
+browser.json
+oauth.json
+*auth*.json
+.vercel/
+*.log
+.DS_Store
